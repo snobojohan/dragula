@@ -1,3 +1,14 @@
+/* TODO
+
+  Font...
+  Hoppigt, disabla rutan man tar från
+
+  over	el, container, source	el is over container, and originally came from source
+
+
+*/
+
+
 body {
   background-color: #fff;
   margin: 0 auto;
@@ -17,7 +28,7 @@ html, body {
 }
 
 body, input, button {
-    font-size: 17px;
+    font-size: 16px;
     font-family: Publik,Helvetica Neue,Helvetica,Arial,sans-serif;
     color: #1a1a1a;
     font-weight: 400;
@@ -35,6 +46,8 @@ h2 {
   font-weight: 900;
   padding: 10px 0;
   margin-bottom: 0;
+  font-size: 2em;
+  margin: 0
 }
 
 h3 {
@@ -42,8 +55,8 @@ h3 {
   border-bottom: 3px solid #333;
   text-align: left;
   font-weight: 400;
-  padding: 10px 0;
-  margin-bottom: 0;
+  padding: 10px 0 5px 0;
+  margin: 0;
 }
 
 h3 div {
@@ -155,14 +168,23 @@ button:hover {
   display: block;
   border: 1px solid #333;
   width: 100%;
-  min-height: 100px;
+  min-height: 158px;
   box-sizing: border-box;
   padding: 1px 0;
+  &--important {
+    background-color: #D2EBD2;
+  }
   &--collection {
     border: none;
-    min-height: 10px;
-    // display: inline-block;
+    min-height: 85px;
+    > div {
+      display: inline-block;
+      font-size: 12px;
+      margin: 0 5px 8px 0 !important;
+    }
+    //
     // HERE!
+
   }
 }
 .container:nth-child(odd) {
@@ -172,29 +194,32 @@ button:hover {
  * note that styling gu-mirror directly is a bad practice because it's too generic.
  * you're better off giving the draggable elements a unique class and styling that directly!
  */
+ body.from-source .gu-mirror {
+   font-size: 12px;
+ }
 .container > div,
 .gu-mirror {
   margin: 10px;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: opacity 0.4s ease-in-out;
+  // transition: opacity 0.4s ease-in-out;
   background: #fff;
 }
 .container > div {
   box-shadow:
-  0 2px 2px 0 rgba(0,0,0,0.14),
-  0 1px 5px 0 rgba(0,0,0,0.12),
-  0 -1px 1px 0 rgba(0,0,0,0.1);
+    0 2px 2px 0 rgba(0,0,0,0.14),
+    0 1px 5px 0 rgba(0,0,0,0.12),
+    0 -1px 1px 0 rgba(0,0,0,0.1);
 }
 .gu-mirror {
   box-shadow:
-  0 3px 3px 2px rgba(0,0,0,0.14),
-  0 2px 6px 2px rgba(0,0,0,0.2),
-  0 -1px 2px 2px rgba(0,0,0,0.1);
+    0 3px 3px 2px rgba(0,0,0,0.14),
+    0 2px 6px 2px rgba(0,0,0,0.2),
+    0 -1px 2px 2px rgba(0,0,0,0.1);
+    /*
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);
-
+    */
 }
 .container--collection > div {
   margin: 10px 0;

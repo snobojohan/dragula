@@ -5,9 +5,8 @@ var crossvent = require('crossvent');
 var sortable = $('sortable');
 
 /* johb added */
-function hasClass(element, cls) {
-    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
-}
+window.addEventListener( 'touchmove', function() {})
+
 
 // el.classList.remove('bad');
 // el.classList.add('good');
@@ -32,10 +31,24 @@ dragula([$('one'), $('two'), $('three')], {
   revertOnSpill: true,
 
   accepts: function (el, target, source, sibling) {
-    console.log(target.classList);
+    // console.log(target.classList);
     return !target.classList.contains('disabled');
   }
 
+  })
+  .on('drag', function (el, source) {
+
+    if( source.getAttribute('id') === "one"){
+      console.log("one");
+      document.body.classList.add("from-source");
+      source.classList.add('disabled');
+
+    }
+
+  })
+  .on('dragend', function (el) {
+    document.body.classList.remove("from-source");
+    document.getElementById("one").classList.remove('disabled');
   })
   .on('drop', function (el, target, source) {
 
@@ -56,9 +69,9 @@ dragula([$('one'), $('two'), $('three')], {
         && sDataMax > source.childElementCount
         && source.classList.contains('disabled')
       ) {
-        console.log("REMOVING");
+
         source.classList.remove('disabled');
-      
+
       }
   }
 );
