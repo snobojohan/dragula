@@ -1,5 +1,5 @@
 body {
-  background-color: #942A57;
+  background-color: #fff;
   margin: 0 auto;
   max-width: 760px;
 }
@@ -17,9 +17,10 @@ html, body {
 }
 
 body, input, button {
-  font-family: Georgia, Helvetica;
-  font-size: 17px;
-  color: #ecf0f1;
+    font-size: 17px;
+    font-family: Publik,Helvetica Neue,Helvetica,Arial,sans-serif;
+    color: #1a1a1a;
+    font-weight: 400;
 }
 
 h1 {
@@ -30,11 +31,19 @@ h1 {
   padding: 10px;
 }
 
+h2 {
+  font-weight: 900;
+  padding: 10px 0;
+  margin-bottom: 0;
+}
+
 h3 {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-bottom: 5px solid #A13462;
-  text-align: center;
-  padding: 10px;
+  // background-color: rgba(255, 255, 255, 0.2);
+  border-bottom: 3px solid #333;
+  text-align: left;
+  font-weight: 400;
+  padding: 10px 0;
+  margin-bottom: 0;
 }
 
 h3 div {
@@ -99,8 +108,8 @@ ul {
 }
 
 .parent {
-  background-color: rgba(255, 255, 255, 0.2);
-  margin: 50px 0;
+  // background-color: rgba(255, 255, 255, 0.2);
+  // margin: 50px 0;
   padding: 20px;
 }
 
@@ -140,15 +149,24 @@ button:hover {
 
 /* dragula-specific example page styles */
 .wrapper {
-  display: table;
+  display: block;
 }
 .container {
-  display: table-cell;
-  background-color: rgba(255, 255, 255, 0.2);
-  width: 50%;
+  display: block;
+  border: 1px solid #333;
+  width: 100%;
+  min-height: 100px;
+  box-sizing: border-box;
+  padding: 1px 0;
+  &--collection {
+    border: none;
+    min-height: 10px;
+    // display: inline-block;
+    // HERE!
+  }
 }
 .container:nth-child(odd) {
-  background-color: rgba(0, 0, 0, 0.2);
+  // background-color: rgba(0, 0, 0, 0.2);
 }
 /*
  * note that styling gu-mirror directly is a bad practice because it's too generic.
@@ -160,6 +178,26 @@ button:hover {
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.2);
   transition: opacity 0.4s ease-in-out;
+  background: #fff;
+}
+.container > div {
+  box-shadow:
+  0 2px 2px 0 rgba(0,0,0,0.14),
+  0 1px 5px 0 rgba(0,0,0,0.12),
+  0 -1px 1px 0 rgba(0,0,0,0.1);
+}
+.gu-mirror {
+  box-shadow:
+  0 3px 3px 2px rgba(0,0,0,0.14),
+  0 2px 6px 2px rgba(0,0,0,0.2),
+  0 -1px 2px 2px rgba(0,0,0,0.1);
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+
+}
+.container--collection > div {
+  margin: 10px 0;
 }
 .container > div {
   cursor: move;
@@ -172,6 +210,7 @@ button:hover {
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
 }
+/*
 .container .ex-moved {
   background-color: #e74c3c;
 }
@@ -193,92 +232,4 @@ button:hover {
   display: block;
   text-align: center;
 }
-.slack-join {
-  position: absolute;
-  font-weight: normal;
-  font-size: 14px;
-  right: 10px;
-  top: 50%;
-  margin-top: -8px;
-  line-height: 16px;
-}
-
-/* Carbon */
-
-#carbonads {
-  position: absolute;
-  display: block;
-  overflow: hidden;
-  margin-left: -180px;
-  padding: 1em;
-  max-width: calc(130px + 2em);
-  background-color: #aa5579;
-  text-align: center;
-  font-size: 12px;
-  font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif;
-  line-height: 1.5;
-}
-
-#carbonads a {
-  color: inherit;
-  text-decoration: none;
-  font-weight: 400;
-  transition: color .2s ease-in-out;
-}
-
-#carbonads a:hover {
-  color: #221c3b;
-}
-
-#carbonads span {
-  display: block;
-  overflow: hidden;
-}
-
-.carbon-img {
-  display: block;
-  margin: 0 auto 1em;
-}
-
-.carbon-text {
-  display: block;
-  margin-bottom: 1em;
-}
-
-.carbon-poweredby {
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 9px;
-}
-
-@media only screen and (min-width: 320px) and (max-width: 960px) {
-  #carbonads {
-    position: relative;
-    float: none;
-    margin: 0 auto -2em;
-    max-width: 330px;
-  }
-  #carbonads span {
-    position: relative;
-  }
-  #carbonads > span {
-    max-width: none;
-  }
-  .carbon-img {
-    float: left;
-    margin: 0 1em 0 0;
-  }
-  .carbon-text {
-    float: left;
-    margin-bottom: 0;
-    max-width: calc(100% - 130px - 1em);
-    text-align: left;
-  }
-  .carbon-poweredby {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    display: block;
-  }
-}
+*/

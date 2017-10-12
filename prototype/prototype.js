@@ -4,8 +4,15 @@
 var crossvent = require('crossvent');
 var sortable = $('sortable');
 
-dragula([$('left-defaults'), $('right-defaults')]);
-dragula([$('left-copy'), $('right-copy')], { copy: true });
+/* johb added */
+function hasClass(element, cls) {
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+}
+
+// el.classList.remove('bad');
+// el.classList.add('good');
+
+
 dragula([$('left-events'), $('right-events')])
   .on('drag', function (el) {
     el.className = el.className.replace('ex-moved', '');
@@ -19,20 +26,46 @@ dragula([$('left-events'), $('right-events')])
   .on('out', function (el, container) {
     container.className = container.className.replace('ex-over', '');
   });
-dragula([$('left-rollbacks'), $('right-rollbacks')], { revertOnSpill: true });
+
+dragula([$('one'), $('two'), $('three')], {
+
+  revertOnSpill: true,
+
+  accepts: function (el, target, source, sibling) {
+    console.log(target.classList);
+    return !target.classList.contains('disabled');
+  }
+
+  })
+  .on('drop', function (el, target, source) {
+
+    var dataMax = target.getAttribute('data-max');
+    var sDataMax = source.getAttribute('data-max');
+
+
+      if(
+        dataMax
+        && target.getAttribute('data-max') <= target.childElementCount
+        && !target.classList.contains('disabled')
+      ) {
+          target.classList.add('disabled');
+      }
+
+      if (
+        sDataMax
+        && sDataMax > source.childElementCount
+        && source.classList.contains('disabled')
+      ) {
+        console.log("REMOVING");
+        source.classList.remove('disabled');
+      
+      }
+  }
+);
+
 dragula([$('left-lovehandles'), $('right-lovehandles')], {
   moves: function (el, container, handle) {
     return handle.className === 'handle';
-  }
-});
-
-dragula([$('left-rm-spill'), $('right-rm-spill')], { removeOnSpill: true });
-dragula([$('left-copy-1tomany'), $('right-copy-1tomany')], {
-  copy: function (el, source) {
-    return source === $('left-copy-1tomany');
-  },
-  accepts: function (el, target) {
-    return target !== $('left-copy-1tomany');
   }
 });
 
