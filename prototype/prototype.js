@@ -47,14 +47,35 @@ dragula([$('one'), $('two'), $('three')], {
 
   })
   .on('dragend', function (el) {
+
     document.body.classList.remove("from-source");
     document.getElementById("one").classList.remove('disabled');
+
+    // Check if button should be visible
+    var aBtn = document.getElementById("nextbtn");
+    var anEl = document.getElementById("two");
+    var aDataMax = parseInt(anEl.getAttribute('data-max'));
+    var aChildCount = anEl.childElementCount;
+
+    console.log(aBtn.classList,aDataMax,aChildCount);
+
+    if( aDataMax && aChildCount >= aDataMax) {
+      aBtn.classList.add('pulse');
+    } else {
+      aBtn.classList.remove('pulse');
+    }
+
+    if( aChildCount > 0) {
+      aBtn.classList.add('show');
+    } else {
+      aBtn.classList.remove('show');
+    }
+
   })
   .on('drop', function (el, target, source) {
 
     var dataMax = target.getAttribute('data-max');
     var sDataMax = source.getAttribute('data-max');
-
 
       if(
         dataMax
@@ -69,10 +90,9 @@ dragula([$('one'), $('two'), $('three')], {
         && sDataMax > source.childElementCount
         && source.classList.contains('disabled')
       ) {
-
         source.classList.remove('disabled');
-
       }
+
   }
 );
 

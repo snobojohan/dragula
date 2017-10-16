@@ -8,6 +8,18 @@
 
 
 */
+/* SVT Graphic Profile https://styleguide.svt.se/identity/color */
+/* Red */
+/* Orange */
+/* Yellow */
+/* Green */
+/* Turquoise */
+/* Blue */
+/* Purple */
+/* Gray */
+/* Warm Gray */
+/* Cool Gray */
+/* Black & White */
 body {
   background-color: #fff;
   margin: 0 auto;
@@ -72,13 +84,6 @@ h3 div {
   background-color: #ff4020;
   border-bottom: 5px solid #c00; }
 
-a {
-  font-weight: bold; }
-
-a,
-a:hover {
-  color: #ecf0f1; }
-
 pre {
   white-space: pre-wrap; }
 
@@ -116,6 +121,7 @@ input {
   display: block;
   width: 100%; }
 
+/*
 button {
   background-color: #ecf0f1;
   color: #942A57;
@@ -123,12 +129,126 @@ button {
   padding: 18px 12px;
   margin-left: 6px;
   cursor: pointer;
-  outline: none; }
+  outline: none;
+}
 
 button:hover {
   background-color: #e74c3c;
-  color: #ecf0f1; }
+  color: #ecf0f1;
+}
+*/
+.btn {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #32a532;
+  text-align: center;
+  letter-spacing: .5px;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+  cursor: pointer; }
 
+.btn {
+  font-size: 1rem;
+  outline: 0; }
+
+.btn {
+  border: none;
+  border-radius: 4em;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent; }
+  .btn--half-center {
+    min-width: 50%;
+    margin: 1em auto; }
+  .btn--circular {
+    overflow: hidden;
+    z-index: 1;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    padding: 0;
+    border-radius: 50%;
+    /*
+    -webkit-transition: .3s;
+    transition: .3s;
+    */
+    cursor: pointer;
+    vertical-align: middle;
+    font-size: 1.5em;
+    font-weight: 200;
+    position: absolute !important;
+    right: -9999px;
+    bottom: -27px;
+    display: inline-block;
+    visibility: hidden; }
+    .btn--circular.show {
+      right: 10px;
+      visibility: visible; }
+
+.btn {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); }
+
+a.btn {
+  /*
+  &:hover {
+    background-color: $svt-color_green_light;
+  }
+  */ }
+  a.btn:active, a.btn :focus {
+    background-color: #23821e; }
+
+.pulse {
+  overflow: initial;
+  position: relative; }
+
+.pulse::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: inherit;
+  border-radius: inherit;
+  -webkit-transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, -webkit-transform .3s;
+  transition: opacity .3s, transform .3s;
+  transition: opacity .3s, transform .3s, -webkit-transform .3s;
+  -webkit-animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  z-index: -1; }
+
+@-webkit-keyframes pulse-animation {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5); } }
+@keyframes pulse-animation {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5); }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5); } }
 .gh-fork {
   position: fixed;
   top: 0;
@@ -139,22 +259,36 @@ button:hover {
 .wrapper {
   display: block; }
 
+.innerWrapper {
+  position: relative; }
+
 .container {
   display: block;
   border: 1px solid #333;
   width: 100%;
-  min-height: 158px;
+  min-height: 85px;
   box-sizing: border-box;
   padding: 1px 0; }
   .container--important {
-    background-color: #D2EBD2; }
+    background-color: #D2EBD2;
+    background-image: url(bgmessage.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 234px;
+    min-height: 158px; }
   .container--collection {
-    border: none;
-    min-height: 85px; }
+    border: none; }
     .container--collection > div {
       display: inline-block;
       font-size: 12px;
       margin: 0 5px 8px 0 !important; }
+
+.gu-unselectable .container--important.disabled {
+  opacity: 0.5;
+  background-color: #EEE; }
+  .gu-unselectable .container--important.disabled div {
+    box-shadow: none;
+    background: transparent; }
 
 /*
  * note that styling gu-mirror directly is a bad practice because it's too generic.
