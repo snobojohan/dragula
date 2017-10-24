@@ -60,16 +60,20 @@ dragula([$('one'), $('two'), $('three')], {
     console.log(aBtn.classList,aDataMax,aChildCount);
 
     if( aDataMax && aChildCount >= aDataMax) {
+      aBtn.classList.add('show');
       aBtn.classList.add('pulse');
     } else {
       aBtn.classList.remove('pulse');
+      aBtn.classList.remove('show');
     }
 
+    /*
     if( aChildCount > 0) {
       aBtn.classList.add('show');
     } else {
       aBtn.classList.remove('show');
     }
+    */
 
   })
   .on('drop', function (el, target, source) {
