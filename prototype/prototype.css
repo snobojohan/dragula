@@ -42,17 +42,17 @@ body, input, button {
   font-weight: 400; }
 
 h1 {
-  text-align: center;
-  background-color: #AC5C7E;
-  margin-top: 20px;
-  margin-bottom: 0;
-  padding: 10px; }
-
-h2 {
-  font-weight: 900;
-  padding: 10px 0;
+  font-weight: 400;
+  padding: 10px 0 0 0;
   margin-bottom: 0;
   font-size: 2em;
+  margin: 0; }
+
+h2 {
+  font-weight: 400;
+  padding: 10px 0 0 0;
+  margin-bottom: 0;
+  font-size: 1.5em;
   margin: 0; }
 
 h3 {
